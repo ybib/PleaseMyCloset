@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "328138826911-va4v9q391oeep013lrr079iotnbu9ahl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.androidtown.pleasemycloset",
+            "certificate_hash": "ec26a0de2990755608cf89ddd1c7936bd220a68f"
+          }
+        },
+        {
           "client_id": "328138826911-nuombt19m5vfgdkjp8ql15tc9lf7f308.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

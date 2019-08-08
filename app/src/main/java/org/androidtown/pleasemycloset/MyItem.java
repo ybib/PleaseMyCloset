@@ -4,9 +4,15 @@ import android.graphics.drawable.Drawable;
 
 public class MyItem {
 
-    private Drawable icon;
-    private String name;
-    private String contents;
+    public Drawable icon;
+    public String name;
+    public String contents;
+
+    public MyItem(Drawable _drawable, String _name, String _contents){
+        icon = _drawable;
+        name = _name;
+        contents = _contents;
+    }
 
     public Drawable getIcon() {
         return icon;

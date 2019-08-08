@@ -9,13 +9,12 @@
 
     <Button
         android:id="@+id/btnSeeMyCloset"
-        android:gravity="center"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:text="string/mycloset"
         android:layout_above="@+id/btnSeeMyFriend"
         android:layout_alignLeft="@+id/btnSeeMyFriend"
-   />
+        android:gravity="center"
+        android:text="@string/mycloset" />
 
     <Button
         android:layout_centerInParent="true"

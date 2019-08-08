@@ -25,6 +25,7 @@
         <activity
             android:name=".MyClosetActivity"
             android:label="@string/title_activity_my_closet" />
+
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login">

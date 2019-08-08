@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <SurfaceView
+        android:id="@+id/camera_preview_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <Button
+        android:id="@+id/button_main_capture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="70dp"
+        android:text="캡처" />
+
+
+
+    <com.google.android.material.tabs.TabLayout
+        android:layout_gravity="bottom"
+        android:background="?android:attr/windowBackground"
+        android:id="@+id/tab_layout_cam"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        app:tabMode="scrollable"
+        app:tabGravity="fill">
+
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tabItem_outer"
+            android:icon="@android:drawable/ic_menu_call"
+            android:text="outer" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabItem_top"
+            android:icon="@android:drawable/ic_menu_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="top" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabItem_bottom"
+            android:icon="@android:drawable/ic_menu_edit"
+            android:title="bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="bottom"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabItem_shoes"
+            android:icon="@android:drawable/ic_menu_help"
+            android:title="shoes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="shoes"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabItem_acc"
+            android:icon="@android:drawable/ic_menu_help"
+            android:title="acc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="acc"/>
+
+
+
+    </com.google.android.material.tabs.TabLayout>
+
+</FrameLayout>

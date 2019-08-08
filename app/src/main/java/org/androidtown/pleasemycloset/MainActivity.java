@@ -1,6 +1,9 @@
 package org.androidtown.pleasemycloset;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,8 +14,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        findViewById(R.id.mycloset).setOnClickListener(this);
-        findViewById(R.id.friendlist).setOnClickListener(this);
+        // 파이어베이스 유저 데이터 세팅.
+        MyUserData.getInstance().InitUserData();
+
+        findViewById(R.id.btnSeeMyCloset).setOnClickListener(this);
+        findViewById(R.id.btnSeeMyFriend).setOnClickListener(this);
     }
 
     @Override
@@ -22,10 +28,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Activity 생성하면 작업해야함.
         switch(v.getId())
         {
-            case R.id.mycloset:
-                //intent = new Intent(MainActivity.class);
+            case R.id.btnSeeMyCloset:
+                intent = new Intent(MainActivity.this, MyClosetActivity.class);
                 break;
-            case R.id.friendlist:
+            case R.id.btnSeeMyFriend:
                 intent = new Intent(MainActivity.this, Friendlist.class);
                 break;
             default:
