@@ -54,9 +54,9 @@ public class LoginActivity extends AppCompatActivity {
         };
 
         Button login_button = (Button) findViewById(R.id.login);
+        Button register_button = (Button) findViewById(R.id.register);
         edittext_id = (EditText) findViewById(R.id.edittext_id);
         edittext_pw = (EditText) findViewById(R.id.edittext_password);
-
 
         //when click login btn, call user Login
         login_button.setOnClickListener(new View.OnClickListener(){
@@ -72,6 +72,14 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 Toast.makeText(LoginActivity.this,st_Id+","+st_Pw, Toast.LENGTH_SHORT).show();
 
+            }
+        });
+
+        register_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
             }
         });
 
