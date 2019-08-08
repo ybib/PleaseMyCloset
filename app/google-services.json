@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "328138826911",
+    "firebase_url": "https://pleasemycloset-d9170.firebaseio.com",
+    "project_id": "pleasemycloset-d9170",
+    "storage_bucket": "pleasemycloset-d9170.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:328138826911:android:8fbcfdf3ce611e9c",
+        "android_client_info": {
+          "package_name": "org.androidtown.pleasemycloset"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "328138826911-nuombt19m5vfgdkjp8ql15tc9lf7f308.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.androidtown.pleasemycloset",
+            "certificate_hash": "9ae9290ab9185ac76cf059a7490d5919fe35ccb9"
+          }
+        },
+        {
+          "client_id": "328138826911-fs15t02djb37jv3838d7svp9mp7ka1h1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2ag7Wdlbrp4vlECC8zTZ2RsbmvzBABL8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "328138826911-fs15t02djb37jv3838d7svp9mp7ka1h1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
