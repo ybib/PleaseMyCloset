@@ -14,6 +14,11 @@
         completions."
     </string>
 
+    <string name="title_activity_my_closet">MyClosetActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
     <string name="hint_email">Input Email ID</string>
     <string name="hint_password">Input Password</string>
     <string name="btn_login">LogIn</string>
