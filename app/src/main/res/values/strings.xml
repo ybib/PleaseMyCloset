@@ -28,4 +28,5 @@
 
     <string name="mycloset">My Close</string>
     <string name="friendslist">FriendList</string>
+    <string name="title_activity_test_list">TestListActivity</string>
 </resources>

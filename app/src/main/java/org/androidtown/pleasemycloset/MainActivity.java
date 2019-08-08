@@ -2,9 +2,10 @@ package org.androidtown.pleasemycloset;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -12,6 +13,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        findViewById(R.id.mycloset).setOnClickListener(this);
+        findViewById(R.id.friendlist).setOnClickListener(this);
     }
 
     @Override
@@ -25,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //intent = new Intent(MainActivity.class);
                 break;
             case R.id.friendlist:
-                //intent = new Intent(MainActivity.class);
+                intent = new Intent(MainActivity.this, Friendlist.class);
                 break;
             default:
                 String tmpStr = "Wrong ID : " + v.getId();
