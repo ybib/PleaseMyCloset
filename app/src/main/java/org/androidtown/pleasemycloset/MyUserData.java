@@ -15,6 +15,8 @@ public class MyUserData {
     final String USERS = "users";
     final String ITEMS = "items";
 
+    private FirebaseAuth auth;
+
     private FirebaseUser currentFirebaseUser;
     private StorageReference StorageRef;
 
@@ -31,7 +33,8 @@ public class MyUserData {
     }
 
     public void InitUserData(){
-        currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
+        auth = FirebaseAuth.getInstance();
+        currentFirebaseUser = auth.getCurrentUser() ;
         StorageRef = FirebaseStorage.getInstance().getReference();
         UserDatabaseRef = FirebaseDatabase.getInstance().getReference(USERS);
         ItemDatabaseRef = FirebaseDatabase.getInstance().getReference(ITEMS);
@@ -43,8 +46,14 @@ public class MyUserData {
     public String getUserUid() {return currentFirebaseUser.getUid();}
 
     public StorageReference getStorageRef() {return StorageRef;}
+    public StorageReference getMyStorageRef() {return StorageRef.child(getUserUid());}
     public StorageReference getUserStorageRef(String uid) {return StorageRef.child(uid);}
 
+    // 회원 가입 등록 후 테이블 등록
+    public void addUserData(){
+        UserDatabaseRef.child(getUserUid());
+        ItemDatabaseRef.child(getUserUid());
+    }
 
     // 일어나서 다시 보자.
     public DatabaseReference getUserDataTable(){return UserDatabaseRef.child(getUserUid());}

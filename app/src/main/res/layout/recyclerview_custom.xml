@@ -1,30 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
-    android:paddingTop="15dp"
-    android:paddingBottom="15dp">
+    android:layout_height="match_parent"
+    tools:context=".Friendlist">
 
-    <ImageView
-        android:id="@+id/thumbnail"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_main_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:adjustViewBounds="true"/>
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight="9"
+        android:scrollbarFadeDuration="0"
+        android:scrollbarSize="5dp"
+        android:scrollbarThumbVertical="@android:color/darker_gray"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/button_main_insert"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@+id/thumbnail"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+
+    <Button
+        android:id="@+id/button_main_insert"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="데이터 추가"
+        app:layout_constraintVertical_weight="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerview_main_list" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

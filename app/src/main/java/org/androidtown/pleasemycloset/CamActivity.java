@@ -23,7 +23,6 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
-import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
@@ -44,7 +43,7 @@ public class CamActivity extends AppCompatActivity
     private View mLayout;  // Snackbar 사용하기 위해서는 View가 필요합니다.
     // (참고로 Toast에서는 Context가 필요했습니다.)
 
-    private String category;//string for category
+    private String category = "outer";//string for category
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,43 +88,60 @@ public class CamActivity extends AppCompatActivity
             public void onClick(View v) {
                 mCameraPreview.takePicture();
 
-                // 저장할 사진의 이름을 정하는 화면을 만들고, 그 곳에서 기입한 데이터를 여기서 파이어베이스로 전송
-                // test
-                final String tmp = "rivers.jpg";
+                String a = Environment.getExternalStorageDirectory().getAbsolutePath();
 
                 //code for upload
                 Uri file = Uri.fromFile(new File(Environment.getExternalStorageDirectory().getAbsolutePath()+ "/camtest/1565252063411.jpg"));
 
+                // 저장할 사진의 이름을 정하는 화면을 만들고, 그 곳에서 기입한 데이터를 여기서 파이어베이스로 전송
+                // test
+                final String tmp = "rivers.jpg";
+                final StorageReference ref = MyUserData.getInstance().getMyStorageRef().child(category);
+                UploadTask uploadTask = ref.putFile(file);
+
+                uploadTask.addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(getApplicationContext(),"실패", Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        MyUserData.getInstance().addUserStorageAndTable(category, tmp, ref + "/" +tmp);
+                        Toast.makeText(getApplicationContext(),"성공", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
                 // 경로 확인 가능함
-                StorageReference riversRef = MyUserData.getInstance().getStorageRef().child(MyUserData.getInstance().getUserUid()).child(category).child(tmp);
-                //StorageReference riversRef = MyUserData.getInstance().getStorageRef().child(tmp);
-
-                //Toast.makeText(CamActivity.this, Environment.getExternalStorageDirectory().getAbsolutePath()+ "/camtest/1565252063411.jpg",
-                //       Toast.LENGTH_SHORT).show();
-                Toast.makeText(CamActivity.this,"catergory:"+category,Toast.LENGTH_SHORT).show();
-                if(file!=null) {
-                    riversRef.putFile(file)
-                            .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                                @Override
-                                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                    // Get a URL to the uploaded content
-                                    // test
-                                    //MyUserData.getInstance().addUserStorageAndTable(category, tmp, path);
-                                }
-                            })
-                            .addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception exception) {
-                                    Log.d("uri", "error");
-                                    // Handle unsuccessful uploads
-                                    // ...
-                                }
-                            });
-                    MyUserData.getInstance().addUserStorageAndTable(category, tmp, riversRef.toString());
-
-                }else{
-                    Toast.makeText(CamActivity.this,"없는 파일",Toast.LENGTH_SHORT).show();
-                }
+//                StorageReference riversRef = MyUserData.getInstance().getStorageRef().child(MyUserData.getInstance().getUserUid()).child(category).child(tmp);
+//
+//                //Toast.makeText(CamActivity.this, Environment.getExternalStorageDirectory().getAbsolutePath()+ "/camtest/1565252063411.jpg",
+//                //       Toast.LENGTH_SHORT).show();
+//                Toast.makeText(CamActivity.this,"catergory:"+category,Toast.LENGTH_SHORT).show();
+//                if(file!=null) {
+//                    riversRef.putFile(file)
+//                            .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+//                                @Override
+//                                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+//                                    // Get a URL to the uploaded content
+//                                    // test
+//                                    //MyUserData.getInstance().addUserStorageAndTable(category, tmp, path);
+//                                }
+//                            })
+//                            .addOnFailureListener(new OnFailureListener() {
+//                                @Override
+//                                public void onFailure(@NonNull Exception exception) {
+//                                    Log.d("uri", "error");
+//                                    // Handle unsuccessful uploads
+//                                    // ...
+//                                }
+//                            });
+//                    MyUserData.getInstance().addUserStorageAndTable(category, tmp, riversRef.toString());
+//
+//                }else{
+//                    Toast.makeText(CamActivity.this,"없는 파일",Toast.LENGTH_SHORT).show();
+//                }
 
             }
         });

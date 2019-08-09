@@ -19,6 +19,9 @@ import android.view.ViewGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -44,7 +47,7 @@ class CameraPreview extends ViewGroup implements SurfaceHolder.Callback {
     private boolean isPreview = false;
 
     private AppCompatActivity mActivity;
-
+    private StorageReference ref;
 
     public CameraPreview(Context context, AppCompatActivity activity, int cameraID, SurfaceView surfaceView) {
         super(context);
@@ -374,7 +377,6 @@ class CameraPreview extends ViewGroup implements SurfaceHolder.Callback {
 
 
                 mCamera.startPreview();
-
 
                 // 갤러리에 반영
                 Intent mediaScanIntent = new Intent( Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);

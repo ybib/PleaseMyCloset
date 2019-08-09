@@ -11,18 +11,30 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.tabs.TabLayout;
 
 public class MyClosetActivity extends AppCompatActivity {
-
-
+    public static final int MY_CLOSET = 1000;
+    public static final int FRIEND_CLOSET = 1001;
+    public static final String FLAG = "closet";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_closet);
 
+        // 진입 때 자신의 것인지, 친구의 것인지 확인.
+        Intent intent = getIntent();
+
+        int _flag = intent.getExtras().getInt(FLAG);
+
         Button btnCamerOn = findViewById(R.id.cameraOn);
 
+        switch (_flag)
+        {
+            case MY_CLOSET: break;
+            case FRIEND_CLOSET: btnCamerOn.setVisibility(View.GONE); break;
+            default: break;
+        }
+
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout) ;
-        //tabLayout.addTab(tabLayout.newTab().setText("TAB-3")) ;
 
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

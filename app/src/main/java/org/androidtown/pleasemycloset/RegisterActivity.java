@@ -52,8 +52,10 @@ public class RegisterActivity extends AppCompatActivity {
                 if (!email.isEmpty() && !password.isEmpty()) {
                     Task<AuthResult> Task = createUser(email, password);
                     // 등록 성공일 경우.
-                    if(Task.isSuccessful())
+                    if(Task.isSuccessful()) {
                         storeUserData();
+                        MyUserData.getInstance().addUserData();
+                    }
                 } else {
                     Toast.makeText(getApplicationContext(), "필수사항은 모두 입력하세요!", Toast.LENGTH_LONG).show();
                 }
