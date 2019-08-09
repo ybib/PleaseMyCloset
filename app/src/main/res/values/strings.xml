@@ -13,8 +13,20 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-    <string name="title_activity_my_closet">MyClosetActivity</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+
+    <string name="hint_email">Input Email ID</string>
+    <string name="hint_password">Input Password</string>
+    <string name="btn_login">LogIn</string>
+    <string name="btn_register">Register</string>
+    <string name="btn_link_to_register">Please Register for our app</string>
+    <string name="btn_back_to_main">Back to Main</string>
+    <string name="btn_logout">LogOut</string>
+    <string name="name">Fullname</string>
+
+    <string name="success_signup">SignUp Successed</string>
+    <string name="failed_signup">SignUp Failed</string>
+    <string name="titile_activity_my_closet">mycloset</string>
+
+    <string name="mycloset">My Close</string>
+    <string name="friendslist">FriendList</string>
 </resources>
