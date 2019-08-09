@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         {
             case R.id.btnSeeMyCloset:
                 intent = new Intent(MainActivity.this, MyClosetActivity.class);
+                intent.putExtra(MyClosetActivity.FLAG, MyClosetActivity.MY_CLOSET);
                 break;
             case R.id.btnSeeMyFriend:
                 intent = new Intent(MainActivity.this, Friendlist.class);
@@ -39,7 +40,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(getApplicationContext(),tmpStr,Toast.LENGTH_SHORT);
                 break;
         }
-
         startActivity(intent);
     }
 }

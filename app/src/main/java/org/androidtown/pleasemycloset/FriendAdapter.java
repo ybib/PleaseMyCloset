@@ -1,5 +1,6 @@
 package org.androidtown.pleasemycloset;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -23,16 +24,19 @@ import java.util.Dictionary;
 class FriendData{
     public String name;
     public String contents;
+    public String uid;
     public FriendData(){}
-    public FriendData(String _name, String _contents){
+    public FriendData(String _name, String _contents, String _uid){
         name = _name;
         contents = _contents;
+        uid = _uid;
     }
 }
 
 public class FriendAdapter extends BaseAdapter{
     /* 아이템을 세트로 담기 위한 어레이 */
     private ArrayList<FriendData> mFriends= new ArrayList<>();
+    private Activity activity;
 
     @Override
     public int getCount() {
@@ -51,7 +55,6 @@ public class FriendAdapter extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
         final Context context = parent.getContext();
 
         /* 'listview_custom' Layout을 inflate하여 convertView 참조 획득 */
@@ -80,11 +83,14 @@ public class FriendAdapter extends BaseAdapter{
             public void onClick(View v) {
                 Intent intent = new Intent(context, MyClosetActivity.class);
                 intent.putExtra(MyClosetActivity.FLAG, MyClosetActivity.FRIEND_CLOSET);
+                activity.startActivity(intent);
             }
         });
-
-
         return convertView;
+    }
+
+    public void SetActivity(Activity _activity){
+        activity = _activity;
     }
 
     /* 아이템 데이터 추가를 위한 함수. 자신이 원하는대로 작성 */

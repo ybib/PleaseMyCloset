@@ -27,8 +27,8 @@ public class Friendlist extends AppCompatActivity {
 
         /* 위젯과 멤버변수 참조 획득 */
         ListView = (ListView)findViewById(R.id.listView);
-
         collectUserFriendlist();
+        mMyAdapter.SetActivity(Friendlist.this);
     }
 
     private void collectUserFriendlist(){
