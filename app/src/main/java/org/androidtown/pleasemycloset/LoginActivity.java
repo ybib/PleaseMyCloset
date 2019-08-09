@@ -63,6 +63,11 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+                //for testing!-----------------------
+                login_progress.setVisibility(View.GONE);
+                Intent menuIntent = new Intent(LoginActivity.this, MainActivity.class);
+                LoginActivity.this.startActivity(menuIntent);
+                //--------------------------------------------
                 st_Id= edittext_id.getText().toString();
                 st_Pw= edittext_pw.getText().toString();
                 if(st_Id.isEmpty()||st_Id.equals("")||st_Pw.isEmpty()||st_Pw.equals("")){
